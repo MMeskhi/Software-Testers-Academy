@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: "FiraGO";
+    font-feature-settings: "case";
+    line-height: 1.5;
+    background-color: #FFFFFF;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: "FiraGO";
+}
+
+a {
+    text-decoration: none;
+    color: #111111;
+}
+
+p {
+    font-feature-settings: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Header */
