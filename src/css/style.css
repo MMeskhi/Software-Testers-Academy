@@ -4,13 +4,26 @@
     box-sizing: border-box;
     scroll-behavior: smooth !important;
     transition: all 0.3s ease;
+    font-size: 2rem;
+}
+
+:root {
+    --primary: #6750A4;
+    --secondary: #625B71;
+    --tertiary: #7D5260;
+    --error: #B3261E;
+    --neutral: #605D62;
+}
+
+html {
+    font-size: 50%;
 }
 
 body {
     font-family: "FiraGO";
     font-feature-settings: "case";
     line-height: 1.5;
-    background-color: #FFFFFF;
+    background: #EEF5F9;
     max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
@@ -37,5 +50,295 @@ img {
     max-width: 100%;
 }
 
+.container-a {
+    max-width: 1824px;
+    width: 95%;
+    margin: auto;
+}
+
+.container-b {
+    max-width: 1824px;
+    width: 84%;
+    margin: auto;
+}
 
 /* Header */
+header {
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 33px 0 45px 0;
+}
+
+.logo img {
+    max-width: 183px;
+    width: 100%;
+    height: 47px;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* Sidebar */
+main {
+    position: static;
+    top: 0;
+    right: 96px;
+    width: calc(100% - 96px);
+    z-index: 2;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 96px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(160, 160, 160, 0.2);
+    padding-top: 50px;
+    z-index: 99;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.sidebar.sidebar-active {}
+
+.sidebar:hover {
+    width: 16%;
+    align-items: flex-start;
+    padding-left: 24px;
+}
+
+.sidebar:hover .logo-mini {
+    display: none;
+}
+
+.sidebar:hover .logo-main {
+    display: block;
+}
+
+.sidebar:hover .search-cont input {
+    width: 264px;
+    text-indent: 44px;
+}
+
+.sidebar:hover .search-cont button {
+    left: 16.5px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.sidebar:hover .sidebar-cats a li span {
+    display: flex;
+}
+
+.sidebar .sidebar-logo {
+    height: 44px;
+}
+
+.sidebar .logo-mini {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebar .logo-main {
+    max-width: 172px;
+    width: 100%;
+    height: 44px;
+
+    display: none;
+}
+
+.sidebar .search {
+    margin-top: 58px;
+}
+
+.sidebar .search-cont {
+    position: relative;
+}
+
+.sidebar .search-cont input {
+    width: 48px;
+    height: 48px;
+    background: rgba(2, 131, 219, 0.14);
+    border-radius: 36px;
+    text-align: left;
+    text-indent: 88px;
+    padding-right: 16px;
+    border: none;
+    outline: none;
+}
+
+.search .search-cont input:focus {
+    box-shadow: 0px 0px 10px #597dbc1a;
+}
+
+.sidebar .search-cont button {
+    width: 18px;
+    height: 18px;
+    border: none;
+    cursor: pointer;
+    background: initial;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar .sidebar-cats {
+    margin-top: 49.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+
+.sidebar .sidebar-cats a li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.sidebar .sidebar-cats a li span {
+    display: none;
+}
+
+
+/* Section Main */
+.section-main .main-grid {
+    height: 508px;
+    background-color: #D9D9D9;
+    border-radius: 4px;
+}
+
+.main-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading .heading {
+    height: 81px;
+    background: #FFFFFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    margin: 39px 0 24px 0;
+}
+
+.main-heading .heading h2 {
+    font-family: 'FiraGO';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #00365B;
+}
+
+.main-heading p {
+    max-width: 506px;
+    width: 100%;
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    color: #00365B;
+    opacity: 0.6;
+}
+
+.main-heading button {
+    width: 68px;
+    height: 68px;
+    background: #0283DB;
+    border-radius: 200px;
+    border: none;
+    cursor: pointer;
+    margin-top: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.main-heading button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 200px;
+    background: rgba(2, 131, 219, 0.19);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-heading button:hover::before {
+    width: 85px;
+    height: 85px;
+    background: rgba(2, 131, 219, 0.25);
+}
+
+.main-heading button:active:before {
+    width: 0;
+    height: 0;
+    background: rgba(2, 131, 219, 0.25);
+    transition: all 0.1s ease;
+}
+
+/* Section Courses */
+.section-courses {
+    height: 100vh;
+    background: #0283DB;
+    margin-top: 110px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    position: relative;
+}
+
+.section-courses .section-courses-dots {
+    position: absolute;
+    top: 67px;
+    left: 0;
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.section-courses .section-courses-cont {
+    margin: 72px 0 112px 0;
+}
+
+.section-courses .section-courses-cont h3 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-weight: 700;
+    font-size: 4rem;
+    color: #FFFFFF;
+}
+
+.section-courses .section-courses-cont p {
+    font-family: 'FiraGO';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    margin-top: 16px;
+}
