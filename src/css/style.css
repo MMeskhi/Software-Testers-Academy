@@ -278,6 +278,7 @@ main {
     outline: none;
 }
 
+.search .search-cont input:hover,
 .search .search-cont input:focus {
     box-shadow: 0px 0px 10px #597dbc1a;
 }
@@ -526,4 +527,162 @@ main {
     font-size: 2.5rem;
     color: #FFFFFF;
     margin-top: 16px;
+}
+
+.swiper {
+    margin-top: 48px;
+}
+
+.swiper-slide {
+    text-align: left;
+    font-size: 18px;
+    background: #fff;
+    height: 100%;
+    min-height: 578px;
+    max-width: 490px;
+    width: 100%;
+    border-radius: 8px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide .slide-head {
+    border-radius: 8px 8px 0px 0px;
+}
+
+.swiper-slide .slide-head img {
+    border-radius: 8px 8px 0px 0px;
+}
+
+.swiper-slide .slide-bottom-cont {
+    padding: 24px 24px 0 24px;
+}
+
+.swiper-slide .slide-bottom {
+    border-radius: 0px 0px 8px 8px;
+    width: 100%;
+}
+
+.swiper-slide .tag {
+    width: fit-content;
+    height: 26px;
+    border-radius: 4px;
+    padding: 0 6px;
+    display: inline-flex;
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.7rem;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.swiper-slide .bs {
+    background: #0283DB;
+    color: #fff;
+}
+
+.swiper-slide .new {
+    background: #F2C94C;
+    color: #222;
+}
+
+.swiper-slide .slide-bottom-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.swiper-slide .slide-bottom-heading .heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.swiper-slide .slide-bottom-heading .heading h4 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #00365B;
+}
+
+.swiper-slide .slide-bottom-heading a,
+.swiper-slide .slide-bottom-heading img {
+    width: 18px;
+    height: 18px;
+    max-width: none;
+}
+
+.swiper-slide .slide-bottom-mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 16px;
+}
+
+.swiper-slide .slide-bottom-mid span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #00365B;
+}
+
+.swiper-slide .slide-bottom hr {
+    background: #E6E6E6;
+    border-radius: 20px;
+    height: 1px;
+    opacity: 0.3;
+    margin: 16px 0;
+}
+
+.swiper-slide .slide-bottom-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px 24px 24px;
+}
+
+.swiper-slide .slide-bottom-bottom .prof {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.swiper-slide .slide-bottom-bottom .prof span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #000000;
+    opacity: 0.8;
+}
+
+.swiper-slide .slide-bottom-bottom .prof .underline {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.swiper-slide .slide-bottom-bottom h5 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #00365B;
 }

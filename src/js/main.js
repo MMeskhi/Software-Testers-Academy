@@ -13,3 +13,8 @@ sidebarCats.forEach((btn) => {
     filterToggle(btn);
   });
 });
+
+var swiper = new Swiper(".section-courses .swiper", {
+  slidesPerView: 3,
+  spaceBetween: 24,
+});
