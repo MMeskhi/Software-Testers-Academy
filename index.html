@@ -134,11 +134,14 @@
     </nav>
 
     <main>
-        <header>
+        <section class="section-head">
             <div class="logo container-a">
-                <a href="index.html">
+                <a href="index.html" class="logo-img">
                     <img src="src/img/icons/testers-logo-main.svg" alt="Software Testers Academy">
                 </a>
+                <button id="hamburger-menu" class="hamburger-menu-button">
+                    <span class="hamburger-menu-button-open"></span>
+                </button>
             </div>
 
             <section class="section-main container-a">
@@ -155,16 +158,20 @@
                     </button>
                 </div>
             </section>
-        </header>
+        </section>
 
         <section class="section-courses">
             <img src="src/img/icons/dots.svg" alt="Dots" class="section-courses-dots">
-            <div class="section-courses-cont">
+            <div class="section-courses-cont container-b">
                 <div class="section-courses-cont-heading">
                     <h3>დაეუფლე მომავლის პროფესიას</h3>
                     <p>იყავი ერთერთი პირველი</p>
                 </div>
-                <div class="swiper mySwiper container-b">
+                <div class="swiper-buttons">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="slide-head">
@@ -387,6 +394,136 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-reviews">
+            <div class="section-reviews-cont container-b">
+                <div class="section-reviews-cont-heading">
+                    <h3>გაეცანით შეფასებებს</h3>
+                    <p>მიიტანეთ თაგუნია</p>
+                </div>
+                <div class="reviews-cont">
+                    <div class="reviews-cont-cont">
+                        <div class="reviews-selection">
+                            <div class="review-card review-card-active">
+                                <div class="reviewer-pic">
+                                    <img src="src/img/Ellipse 311.png" alt="">
+                                </div>
+                                <div class="reviewer-about">
+                                    <h6>დავით ჩაჩუა</h6>
+                                    <span class="bank">
+                                        <img src="src/img/icons/bog.svg" alt="Bank Of Georgia">
+                                        Bank of Georgia
+                                    </span>
+                                    <span class="prof-eng">Senior Software Testing Engineer</span>
+                                    <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                </div>
+                            </div>
+                            <div class="review-card">
+                                <div class="reviewer-pic">
+                                    <img src="src/img/Ellipse 314.png" alt="">
+                                </div>
+                                <div class="reviewer-about">
+                                    <h6>ნიკოლოზ ხომერიკი</h6>
+                                    <span class="bank">
+                                        <img src="src/img/icons/bog.svg" alt="Bank Of Georgia">
+                                        Bank of Georgia
+                                    </span>
+                                    <span class="prof-eng">Senior Software Testing Engineer</span>
+                                    <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                </div>
+                            </div>
+                            <div class="review-card">
+                                <div class="reviewer-pic">
+                                    <img src="src/img/Ellipse 315.png" alt="">
+                                </div>
+                                <div class="reviewer-about">
+                                    <h6>ანი ბასილაშვილი</h6>
+                                    <span class="bank">
+                                        <img src="src/img/icons/tbc.svg" alt="TBC Bank">
+                                        TBC Bank
+                                    </span>
+                                    <span class="prof-eng">Senior Software Testing Engineer</span>
+                                    <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                </div>
+                            </div>
+                            <button class="reviews-all">
+                                ყველა შეფასება
+                                <img src="src/img/icons/arrow-right.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="reviews">
+                            <div class="review review-active">
+                                <h6>Davit Chachua</h6>
+                                <span class="bank">
+                                    <img src="src/img/icons/bog.svg" alt="Bank Of Georgia">
+                                    Bank of Georgia
+                                </span>
+                                <span class="prof-eng">Senior Software Testing Engineer</span>
+                                <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას, რაც უნდა გააკეთოს. ტესტირების სარგებელი მოიცავს შეცდომების
+                                    თავიდან აცილებას, განვითარების ხარჯების შემცირებას და მუშაობის გაუმჯობესებას.</p>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას.</p>
+                            </div>
+                            <div class="review">
+                                <h6>Nikoloz Khomeriki</h6>
+                                <span class="bank">
+                                    <img src="src/img/icons/bog.svg" alt="Bank Of Georgia">
+                                    Bank of Georgia
+                                </span>
+                                <span class="prof-eng">Senior Software Testing Engineer</span>
+                                <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას, რაც უნდა გააკეთოს. ტესტირების სარგებელი მოიცავს შეცდომების
+                                    თავიდან აცილებას, განვითარების ხარჯების შემცირებას და მუშაობის გაუმჯობესებას.</p>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას.</p>
+                            </div>
+                            <div class="review">
+                                <h6>Ani Basilashvili</h6>
+                                <span class="bank">
+                                    <img src="src/img/icons/tbc.svg" alt="TBC Bank">
+                                    TBC Bank
+                                </span>
+                                <span class="prof-eng">Senior Software Testing Engineer</span>
+                                <span class="prof-geo">ციფრული პროდუქტის ტესტირება</span>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას, რაც უნდა გააკეთოს. ტესტირების სარგებელი მოიცავს შეცდომების
+                                    თავიდან აცილებას, განვითარების ხარჯების შემცირებას და მუშაობის გაუმჯობესებას.</p>
+                                <p>პროგრამული უზრუნველყოფის ტესტირება არის პროცესი, რომლის მიხედვითაც პროგრამული
+                                    პროდუქტი ან
+                                    აპლიკაცია აკეთებს იმას.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-blog">
+            <div class="section-blog-cont container-b">
+                <div class="section-blog-cont-heading">
+                    <h3>ბლოგი</h3>
+                </div>
+                <div class="swiper-buttons">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+
                         </div>
                     </div>
                 </div>
