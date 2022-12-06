@@ -46,10 +46,27 @@ const swiper2 = new Swiper(".section-blog .swiper", {
       slidesPerView: 1.1,
     },
     700: {
-      slidesPerView: 2,
+      slidesPerView: 1.7,
     },
     1400: {
+      slidesPerView: 2.2,
+    },
+  },
+});
+
+const swiper3 = new Swiper(".section-brands .swiper", {
+  spaceBetween: 166,
+  breakpoints: {
+    300: {
+      slidesPerView: 2,
+      spaceBetween: 41.5,
+    },
+    700: {
       slidesPerView: 3,
+      spaceBetween: 83,
+    },
+    1400: {
+      slidesPerView: 4,
     },
   },
 });
@@ -81,7 +98,7 @@ gallerySelector.forEach((btn, index) => {
   });
 });
 
-const elementToView = document.querySelector(".section-reviews");
+const elementToView = document.querySelector(".section-courses-cont");
 const scrollBtn = document.querySelector(".main-btn-scroll");
 
 scrollBtn.addEventListener("click", function () {

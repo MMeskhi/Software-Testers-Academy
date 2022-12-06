@@ -178,7 +178,8 @@ img {
 
 
 /* Sidebar */
-main {
+main,
+footer {
     position: static;
     top: 0;
     right: 96px;
@@ -345,6 +346,15 @@ main {
 .sidebar:hover .search-cont input {
     width: 264px !important;
     text-indent: 44px !important;
+    transition: width 0.3s ease;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    font-feature-settings: 'case'on;
+    color: #6B6B6B;
 }
 
 .sidebar-active .search-cont button,
@@ -432,6 +442,7 @@ main {
     padding-right: 16px;
     border: none;
     outline: none;
+    transition: width 0.3s ease;
 }
 
 .sidebar-active .search-cont input:hover,
@@ -661,13 +672,13 @@ main {
 
     .container-a {
         max-width: 1824px;
-        width: 98%;
+        width: 97%;
         margin: 0 auto;
     }
 
     .container-b {
         max-width: 1824px;
-        width: 98%;
+        width: 97%;
         margin: 0 auto;
     }
 
@@ -676,7 +687,8 @@ main {
         z-index: 100;
     }
 
-    main {
+    main,
+    footer {
         position: unset;
         top: 0;
         right: 0;
@@ -744,7 +756,6 @@ main {
 }
 
 .swiper {
-    border-radius: 8px;
     width: 84%;
 }
 
@@ -971,20 +982,6 @@ main {
     width: 120px;
 }
 
-@media (max-width: 1024px) {
-    .swiper-buttons {
-        display: none;
-    }
-
-    .swiper {
-        margin-top: 45px;
-    }
-
-    .swiper-slide {
-        min-height: 452px;
-    }
-}
-
 
 /* Section Reviews */
 .section-reviews {
@@ -1078,16 +1075,22 @@ main {
     width: 188px;
     height: 52px;
     background: #0283DB;
-    color: #FFFFFF;
     border-radius: 200px;
     border: none;
     outline: none;
     cursor: pointer;
     margin-top: 40px;
 
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.section-reviews-cont .reviews-selection .reviews-all span {
+    font-size: 14px;
+    color: #FFFFFF;
+    padding-top: 2px;
 }
 
 .section-reviews-cont .reviews-selection .reviews-all:hover {
@@ -1126,7 +1129,7 @@ main {
 .section-reviews-cont .review-active {
     /* display: flex; */
 
-    transform: translate(-25%, -60%) scale(100%);
+    transform: translate(-25%, -62%) scale(100%);
     opacity: 1;
     visibility: visible;
     z-index: 1;
@@ -1181,7 +1184,6 @@ main {
 .section-blog {
     height: 100%;
     background: #fff;
-    margin-top: 110px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -1205,4 +1207,235 @@ main {
     box-shadow: 0px 0px 20px #597dbc1a;
     border: 1px solid #0283DB;
     background-image: url(../img/icons/arrow-right-blue.svg);
+}
+
+.section-blog .section-blog-cont .swiper {
+    margin-right: unset;
+    width: 92%;
+}
+
+.section-blog .section-blog-cont .swiper-slide {
+    max-width: 743px;
+    min-height: 578px;
+    background: linear-gradient(84.35deg, rgba(17, 17, 17, 0.7) 41.6%, rgba(55, 55, 55, 0.7) 100%), url(../img/Rectangle\ 28.jpg);
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.section-blog .section-blog-cont .swiper-slide:hover {
+    opacity: 0.95;
+}
+
+.section-blog .section-blog-cont .swiper-slide .slide-cont {
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-blog .section-blog-cont .swiper-slide .slide-cont h2 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6rem;
+    color: #FFFFFF;
+
+    max-width: 565px;
+    width: 100%;
+}
+
+/* Section Brands */
+.section-brands {
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    margin: 72px 0;
+}
+
+.section-brands .section-brands-cont .swiper {
+    width: 100%;
+}
+
+.section-brands .section-brands-cont .swiper-slide {
+    min-height: unset;
+    height: 100%;
+    max-width: none;
+    align-items: flex-start;
+}
+
+.section-brands .section-brands-cont .swiper-slide .slide-cont {
+    margin: 72px 0
+}
+
+.section-brands .section-brands-cont .swiper-slide .slide-cont a:hover {
+    opacity: 0.8;
+}
+
+
+@media (max-width: 1024px) {
+    .swiper-buttons {
+        display: none;
+    }
+
+    .swiper {
+        margin-top: 45px;
+    }
+
+    .section-courses .section-courses-cont .swiper-slide {
+        min-height: 452px;
+    }
+
+    .section-blog .section-blog-cont .swiper-slide {
+        min-height: 260px;
+    }
+
+    .section-blog .section-blog-cont .swiper-slide .slide-cont {
+        bottom: 8%;
+    }
+
+    .section-blog .section-blog-cont .swiper-slide .slide-cont h2 {
+        font-size: 5rem;
+    }
+
+    .section-blog .section-blog-cont .swiper {
+        width: 99%;
+    }
+}
+
+/* Footer */
+footer {
+    background: #0383DB;
+    height: 100%;
+}
+
+footer .footer-cont {
+    padding: 72px 0 96px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 100px;
+    gap: 100px;
+}
+
+footer .footer-cont .footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 42px;
+}
+
+footer .footer-cont .footer-left .smart-academy {
+    max-width: 194px;
+    width: 100%;
+    height: 100%;
+}
+
+footer .footer-cont .footer-left .smart-academy:hover {
+    opacity: 0.8;
+}
+
+footer .footer-cont .footer-left p {
+    max-width: 449px;
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.75rem;
+    color: #FFFFFF;
+}
+
+footer .footer-cont .footer-left .footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer .footer-cont .footer-left .footer-socials a,
+footer .footer-cont .footer-left .footer-socials img {
+    width: 28px;
+    height: 28px;
+}
+
+footer .footer-cont .footer-left .footer-socials img:hover {
+    opacity: 0.8;
+}
+
+footer .footer-cont .footer-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+footer .footer-cont .footer-right .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+footer .footer-cont .footer-right .footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+footer .footer-cont .footer-right .footer-col h6 {
+    font-size: 2.25rem;
+    color: #FFFFFF;
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+}
+
+footer .footer-cont .footer-right .footer-col li a {
+    font-size: 1.7rem;
+    color: #FFFFFF;
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: normal;
+}
+
+footer .footer-cont .footer-right .footer-col li a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    footer .footer-cont {
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 0;
+    }
+
+    footer .footer-cont {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    footer .footer-cont {
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    footer .footer-cont .footer-right {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    footer .footer-cont .footer-right .footer-col {
+        gap: 16px;
+    }
 }
