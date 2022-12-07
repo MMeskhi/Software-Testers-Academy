@@ -4,7 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth !important;
     transition: all 0.3s ease;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 :root {
@@ -16,7 +16,7 @@
 }
 
 html {
-    font-size: 50%;
+    font-size: 62.5%;
 }
 
 body {
@@ -86,10 +86,10 @@ img {
 }
 
 .logo-hide {
-    /* opacity: 0;
+    opacity: 0;
     visibility: hidden;
-    z-index: -11; */
-    transform: translateX(720px);
+    z-index: -11;
+    transition: all 0.25s linear;
 }
 
 .logo img {
@@ -269,7 +269,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
 }
 
 .sidebar-active {
@@ -513,7 +513,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     line-height: 17px;
 }
 
@@ -522,7 +522,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: #01375C;
     opacity: 1;
 
@@ -606,7 +606,7 @@ footer {
     font-family: 'FiraGO';
     font-style: italic;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 3.2rem;
     color: #00365B;
     text-align: center;
 }
@@ -617,7 +617,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
     color: #00365B;
     opacity: 0.6;
@@ -667,7 +667,7 @@ footer {
 
 @media (max-width: 1024px) {
     html {
-        font-size: 34.5%;
+        font-size: 52.5%;
     }
 
     .container-a {
@@ -704,8 +704,12 @@ footer {
 }
 
 @media (max-width: 700px) {
-    .logo-hide {
-        transform: translateX(400px);
+    html {
+        font-size: 52.5%;
+    }
+
+    .main-heading .heading h2 {
+        font-size: 2rem;
     }
 }
 
@@ -740,7 +744,7 @@ footer {
 .section-reviews .section-reviews-cont .section-reviews-cont-heading h3 {
     font-family: 'Helvetica Neue LT GEO';
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3.2rem;
     color: #FFFFFF;
 }
 
@@ -749,7 +753,7 @@ footer {
     font-family: 'FiraGO';
     font-style: italic;
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #FFFFFF;
     margin-top: 16px;
     opacity: 0.6;
@@ -825,7 +829,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     white-space: nowrap;
     align-items: center;
 }
@@ -857,7 +861,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #00365B;
 }
 
@@ -880,7 +884,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: #00365B;
 }
 
@@ -910,7 +914,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: #000000;
     opacity: 0.8;
 }
@@ -923,7 +927,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #00365B;
 }
 
@@ -999,18 +1003,25 @@ footer {
 
 .section-reviews-cont .review-card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     max-width: 462px;
     width: 100%;
     height: 100%;
+    max-height: 163px;
 
     background: #FFFFFF;
     box-shadow: 0px 2px 21px rgba(140, 140, 140, 0.12);
     border-radius: 8px;
     padding: 24px;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.section-reviews-cont .review-card-open {
+    max-height: 1000px;
 }
 
 .section-reviews-cont .review-card-active {
@@ -1037,7 +1048,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #212121;
 }
 
@@ -1050,7 +1061,7 @@ footer {
     font-family: 'FiraGO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.6);
 }
 
@@ -1058,7 +1069,7 @@ footer {
     font-family: 'FiraGO';
     font-style: italic;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: #000000;
     opacity: 0.8;
 }
@@ -1067,7 +1078,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: italic;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: rgba(33, 33, 33, 0.8);
 }
 
@@ -1116,8 +1127,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 63%;
-    transform: translate(-50%, -50%) scale(30%);
-    transition: all 0.3s linear;
+    transform: translate(-50%, -50%) scale(0%);
+    transition: all 0.2s linear;
 
     max-width: 461px;
     width: 100%;
@@ -1133,7 +1144,7 @@ footer {
     opacity: 1;
     visibility: visible;
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: all 0.4s linear;
 }
 
 .section-reviews-cont .review h6 {
@@ -1144,7 +1155,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #212121;
     margin-top: 16px;
 }
@@ -1163,7 +1174,41 @@ footer {
     justify-content: space-between;
 }
 
-@media (max-width: 700px) {
+.section-reviews-cont .review-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-reviews-cont .review-opened {
+    display: none;
+    flex-direction: column;
+}
+
+.section-reviews-cont .review-opened hr {
+    margin: 48px 0 16px 0;
+
+    background: #E6E6E6;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+
+.section-reviews-cont .review-opened p {
+    text-align: left;
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #212121;
+}
+
+.section-reviews-cont .review-card-open .review-opened hr {
+    margin: 20px 0 -10px 0;
+    transition: none;
+}
+
+
+@media (max-width: 1024px) {
     .reviews-cont-cont .reviews {
         display: none;
     }
@@ -1177,6 +1222,15 @@ footer {
     .reviews-cont .review-card {
         max-width: none;
         justify-content: flex-start;
+    }
+
+    .section-reviews-cont .review-opened {
+        display: flex;
+        gap: 24px;
+    }
+
+    .section-reviews-cont .review-card-active {
+        outline: none;
     }
 }
 
@@ -1198,7 +1252,7 @@ footer {
 .section-blog .section-blog-cont .section-blog-cont-heading h3 {
     font-family: 'Helvetica Neue LT GEO';
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3.2rem;
     color: #00365B;
 }
 
@@ -1218,6 +1272,9 @@ footer {
     max-width: 743px;
     min-height: 578px;
     background: linear-gradient(84.35deg, rgba(17, 17, 17, 0.7) 41.6%, rgba(55, 55, 55, 0.7) 100%), url(../img/Rectangle\ 28.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 8px;
     position: relative;
     transition: all 0.3s ease;
@@ -1244,7 +1301,7 @@ footer {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 700;
-    font-size: 6rem;
+    font-size: 4.8rem;
     color: #FFFFFF;
 
     max-width: 565px;
@@ -1302,7 +1359,7 @@ footer {
     }
 
     .section-blog .section-blog-cont .swiper-slide .slide-cont h2 {
-        font-size: 5rem;
+        font-size: 3rem;
     }
 
     .section-blog .section-blog-cont .swiper {
@@ -1351,7 +1408,7 @@ footer .footer-cont .footer-left p {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.4rem;
     color: #FFFFFF;
 }
 
@@ -1392,7 +1449,7 @@ footer .footer-cont .footer-right .footer-col ul {
 }
 
 footer .footer-cont .footer-right .footer-col h6 {
-    font-size: 2.25rem;
+    font-size: 1.8rem;
     color: #FFFFFF;
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
@@ -1400,7 +1457,7 @@ footer .footer-cont .footer-right .footer-col h6 {
 }
 
 footer .footer-cont .footer-right .footer-col li a {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: #FFFFFF;
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
@@ -1409,6 +1466,36 @@ footer .footer-cont .footer-right .footer-col li a {
 }
 
 footer .footer-cont .footer-right .footer-col li a:hover {
+    opacity: 0.8;
+}
+
+footer .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+footer .footer-bottom span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+footer .footer-bottom span .db {
+    opacity: 0.6;
+}
+
+footer .footer-bottom span a {
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+footer .footer-bottom span a:hover {
+    color: #FFFFFF;
     opacity: 0.8;
 }
 
@@ -1421,6 +1508,10 @@ footer .footer-cont .footer-right .footer-col li a:hover {
 
     footer .footer-cont {
         padding-right: 0;
+    }
+
+    footer .footer-bottom {
+        justify-content: flex-start;
     }
 }
 

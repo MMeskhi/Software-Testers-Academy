@@ -71,30 +71,30 @@ const swiper3 = new Swiper(".section-brands .swiper", {
   },
 });
 
-const gallerySelector = document.querySelectorAll(".review-card");
+const reviewCardSelector = document.querySelectorAll(".review-card");
 
-gallerySelector.forEach((btn, index) => {
+reviewCardSelector.forEach((btn, index) => {
   btn.addEventListener("mouseover", () => {
-    const changeGallery = (active) => {
-      for (let i = 0; i < gallerySelector.length; i++) {
-        gallerySelector[i].classList.remove("active");
+    const changeReview = (active) => {
+      for (let i = 0; i < reviewCardSelector.length; i++) {
+        reviewCardSelector[i].classList.remove("active");
       }
       active.classList.add("review-card-active");
     };
-    changeGallery(btn);
+    changeReview(btn);
   });
 });
 
-const galleryGrid = document.querySelectorAll(".review");
+const reviewCard = document.querySelectorAll(".review");
 
-gallerySelector.forEach((btn, index) => {
+reviewCardSelector.forEach((btn, index) => {
   btn.addEventListener("mouseover", () => {
-    for (let i = 0; i < gallerySelector.length; i++) {
-      galleryGrid[i].classList.remove("review-active");
-      gallerySelector[i].classList.remove("review-card-active");
+    for (let i = 0; i < reviewCardSelector.length; i++) {
+      reviewCard[i].classList.remove("review-active");
+      reviewCardSelector[i].classList.remove("review-card-active");
     }
-    galleryGrid[index].classList.add("review-active");
-    gallerySelector[index].classList.add("review-card-active");
+    reviewCard[index].classList.add("review-active");
+    reviewCardSelector[index].classList.add("review-card-active");
   });
 });
 
@@ -113,10 +113,21 @@ hamburgerBtn.onclick = function () {
 };
 
 const sidebar = document.querySelector(".sidebar");
+const mouseText = document.querySelector(".mouse-click-over");
 
 if (window.matchMedia("(max-width: 1024px)").matches) {
   sidebar.classList.remove("sidebar");
   sidebar.classList.add("sidebar-active");
+  mouseText.innerHTML = "შეეხე  შეფასებას";
+
+  reviewCardSelector.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      for (let i = 0; i < reviewCardSelector.length; i++) {
+        reviewCardSelector[i].classList.remove("review-card-open");
+      }
+      reviewCardSelector[index].classList.add("review-card-open");
+    });
+  });
 }
 
 //Mobile sidebar
