@@ -115,6 +115,14 @@ hamburgerBtn.onclick = function () {
 const sidebar = document.querySelector(".sidebar");
 const mouseText = document.querySelector(".mouse-click-over");
 
+// sidebar.addEventListener("mouseover", function () {
+//   noScroll.classList.add("no-scroll");
+// });
+
+// sidebar.addEventListener("mouseout", function () {
+//   noScroll.classList.remove("no-scroll");
+// });
+
 if (window.matchMedia("(max-width: 1024px)").matches) {
   sidebar.classList.remove("sidebar");
   sidebar.classList.add("sidebar-active");

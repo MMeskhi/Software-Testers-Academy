@@ -8,11 +8,27 @@
 }
 
 :root {
-    --primary: #6750A4;
+    --primary: #0283DB;
     --secondary: #625B71;
     --tertiary: #7D5260;
     --error: #B3261E;
     --neutral: #605D62;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(2, 132, 219, 0.8);
 }
 
 html {
@@ -211,6 +227,10 @@ footer {
     bottom: 0;
 }
 
+.sidebar::-webkit-scrollbar {
+    width: 3px;
+}
+
 .sidebar-active .sidebar-cats,
 .sidebar .sidebar-cats {
     margin-top: 49.5px;
@@ -302,11 +322,7 @@ footer {
     align-items: flex-start;
     padding-left: 24px;
     padding-right: 24px;
-
     overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
     transition: all 0.3s ease;
 }
 
@@ -316,11 +332,6 @@ footer {
 
 .sidebar-active-active {
     transform: translateX(0px);
-}
-
-.sidebar-active::-webkit-scrollbar,
-.sidebar:hover::-webkit-scrollbar {
-    display: none;
 }
 
 .sidebar-active ul li,
@@ -484,7 +495,7 @@ footer {
 
 .sidebar-active .log-reg button,
 .sidebar .log-reg button {
-    background: #0283DB;
+    background: var(--primary);
     color: #FFFFFF;
     border-radius: 36px;
     outline: none;
@@ -578,12 +589,6 @@ footer {
 
 
 /* Section Main */
-.section-main .main-grid {
-    height: 45vh;
-    background-color: #D9D9D9;
-    border-radius: 4px;
-}
-
 .main-heading {
     display: flex;
     flex-direction: column;
@@ -626,7 +631,7 @@ footer {
 .main-heading button {
     width: 68px;
     height: 68px;
-    background: #0283DB;
+    background: var(--primary);
     border-radius: 200px;
     border: none;
     cursor: pointer;
@@ -665,9 +670,88 @@ footer {
     transition: all 0.1s ease;
 }
 
+.section-main .main-grid {
+    width: 100%;
+    height: 45vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 8px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "a a a d d e e e g g g j"
+        "a a a d d e e e g g g j"
+        "b b c c c e e e h h i j"
+        "b b c c c f f f h h i j";
+}
+
+.main-grid div {
+    background: var(--primary);
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.main-grid .grid-a {
+    grid-area: a;
+    background-image: url(../img/Rectangle\ 40.png);
+}
+
+.main-grid .grid-b {
+    grid-area: b;
+    background-image: url(../img/Rectangle\ 42.png);
+}
+
+.main-grid .grid-c {
+    grid-area: c;
+    background-image: url(../img/Rectangle\ 41.png);
+}
+
+.main-grid .grid-d {
+    grid-area: d;
+    background-image: url(../img/Rectangle\ 44.png);
+}
+
+.main-grid .grid-e {
+    grid-area: e;
+    background-image: url(../img/Rectangle\ 43.png);
+}
+
+.main-grid .grid-f {
+    grid-area: f;
+    background-image: url(../img/Rectangle\ 45.png);
+}
+
+.main-grid .grid-g {
+    grid-area: g;
+    background-image: url(../img/Rectangle\ 47.png);
+}
+
+.main-grid .grid-h {
+    grid-area: h;
+    background-image: url(../img/Rectangle\ 46.png);
+}
+
+.main-grid .grid-i {
+    grid-area: i;
+    background-image: url(../img/Rectangle\ 48.png);
+}
+
+.main-grid .grid-j {
+    grid-area: j;
+    background-image: url(../img/Rectangle\ 49.png);
+}
+
 @media (max-width: 1024px) {
     html {
         font-size: 52.5%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
     }
 
     .container-a {
@@ -716,7 +800,7 @@ footer {
 /* Section Courses */
 .section-courses {
     height: 100%;
-    background: #0283DB;
+    background: var(--primary);
     margin-top: 110px;
 
     display: flex;
@@ -835,7 +919,7 @@ footer {
 }
 
 .swiper-slide .bs {
-    background: #0283DB;
+    background: var(--primary);
     color: #fff;
 }
 
@@ -1085,7 +1169,7 @@ footer {
 .section-reviews-cont .reviews-selection .reviews-all {
     width: 188px;
     height: 52px;
-    background: #0283DB;
+    background: var(--primary);
     border-radius: 200px;
     border: none;
     outline: none;
@@ -1259,7 +1343,7 @@ footer {
 .section-blog .section-blog-cont .swiper-button-prev,
 .section-blog .section-blog-cont .swiper-button-next {
     box-shadow: 0px 0px 20px #597dbc1a;
-    border: 1px solid #0283DB;
+    border: 1px solid var(--primary);
     background-image: url(../img/icons/arrow-right-blue.svg);
 }
 
