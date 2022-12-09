@@ -256,6 +256,7 @@ footer {
     align-items: center;
     width: fit-content;
     cursor: pointer;
+
 }
 
 .sidebar-active ul li a.active img,
@@ -323,7 +324,7 @@ footer {
     padding-left: 24px;
     padding-right: 24px;
     overflow-y: scroll;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .sidebar-active {
@@ -578,7 +579,6 @@ input[type="search"]::-webkit-search-results-decoration {
     max-height: 0px;
     opacity: 0;
     visibility: hidden;
-    z-index: -1;
 }
 
 .sidebar-menu-drp .sidebar-menu-drp-cat-active {
@@ -590,7 +590,14 @@ input[type="search"]::-webkit-search-results-decoration {
     max-height: 200px;
     opacity: 1;
     visibility: visible;
-    z-index: 2;
+}
+
+.sidebar-menu-drp .sidebar-menu-drp-cat a {
+    pointer-events: none;
+}
+
+.sidebar-menu-drp .sidebar-menu-drp-cat-active a {
+    pointer-events: unset;
 }
 
 
@@ -1189,10 +1196,11 @@ input[type="search"]::-webkit-search-results-decoration {
     outline: none;
     cursor: pointer;
     margin-top: 40px;
+    padding: 0 16px 0 24px;
 
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -1200,7 +1208,7 @@ input[type="search"]::-webkit-search-results-decoration {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 17px;
     color: #FFFFFF;
 }

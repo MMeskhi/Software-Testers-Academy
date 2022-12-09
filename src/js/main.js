@@ -123,6 +123,21 @@ const mouseText = document.querySelector(".mouse-click-over");
 //   noScroll.classList.remove("no-scroll");
 // });
 
+// if (window.matchMedia("(max-width: 1024px)").matches) {
+//   sidebar.classList.remove("sidebar");
+//   sidebar.classList.add("sidebar-active");
+//   mouseText.innerHTML = "შეეხე  შეფასებას";
+
+//   reviewCardSelector.forEach((btn, index) => {
+//     btn.addEventListener("click", () => {
+//       for (let i = 0; i < reviewCardSelector.length; i++) {
+//         reviewCardSelector[i].classList.remove("review-card-open");
+//       }
+//       reviewCardSelector[index].classList.add("review-card-open");
+//     });
+//   });
+// }
+
 if (window.matchMedia("(max-width: 1024px)").matches) {
   sidebar.classList.remove("sidebar");
   sidebar.classList.add("sidebar-active");
@@ -130,10 +145,10 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
 
   reviewCardSelector.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      for (let i = 0; i < reviewCardSelector.length; i++) {
-        reviewCardSelector[i].classList.remove("review-card-open");
-      }
-      reviewCardSelector[index].classList.add("review-card-open");
+      const filterToggle = () => {
+        reviewCardSelector[index].classList.toggle("review-card-open");
+      };
+      filterToggle(btn, index);
     });
   });
 }
