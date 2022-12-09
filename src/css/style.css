@@ -36,7 +36,7 @@ html {
 }
 
 body {
-    font-family: "FiraGO";
+    font-family: "Helvetica Neue LT GEO";
     font-feature-settings: "case";
     line-height: 1.5;
     background: #EEF5F9;
@@ -46,7 +46,7 @@ body {
 }
 
 button {
-    font-family: "FiraGO";
+    font-family: "Helvetica Neue LT GEO";
 }
 
 a {
@@ -477,6 +477,12 @@ footer {
     transform: translate(-50%, -50%);
 }
 
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
 .sidebar-active .sidebar-cats a li span,
 .sidebar .sidebar-cats a li span {
     display: none;
@@ -644,6 +650,10 @@ footer {
     position: relative;
 }
 
+.main-heading button img {
+    transform: rotate(90deg);
+}
+
 .main-heading button::before {
     content: "";
     position: absolute;
@@ -693,6 +703,10 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.main-grid div:hover {
+    filter: saturate(110%);
 }
 
 .main-grid .grid-a {
@@ -1183,9 +1197,12 @@ footer {
 }
 
 .section-reviews-cont .reviews-selection .reviews-all span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
     font-size: 14px;
+    line-height: 17px;
     color: #FFFFFF;
-    padding-top: 2px;
 }
 
 .section-reviews-cont .reviews-selection .reviews-all:hover {
@@ -1370,10 +1387,10 @@ footer {
 
 .section-blog .section-blog-cont .swiper-slide .slide-cont {
     position: absolute;
-    top: 6%;
-    bottom: 6%;
-    left: 6%;
-    right: 6%;
+    top: 10%;
+    bottom: 11%;
+    left: 10%;
+    right: 10%;
 
     display: flex;
     justify-content: space-between;
