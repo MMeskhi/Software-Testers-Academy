@@ -324,7 +324,7 @@ footer {
     padding-left: 24px;
     padding-right: 24px;
     overflow-y: scroll;
-    transition: all 0.5s ease;
+    transition: width 0.25s linear;
 }
 
 .sidebar-active {
@@ -801,10 +801,44 @@ input[type="search"]::-webkit-search-results-decoration {
         z-index: 2;
     }
 
-    .sidebar {}
+    .sidebar-active,
+    .sidebar-active-active {
+        transition: all 0.5s ease;
+    }
 
     .logo {
         padding: 25px 0 40px 0;
+    }
+
+    .section-main .main-grid {
+        display: grid;
+        height: 50vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.8fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+        grid-auto-columns: 1fr;
+        gap: 6px 7px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "a a a d d"
+            "a a a d d"
+            "b b c c c"
+            "b b c c c"
+            "b b c c c"
+            "e e e h h"
+            "e e e h h"
+            "e e e h h"
+            "f f f f f"
+            "f f f f f";
+    }
+
+    .grid-g,
+    .grid-i,
+    .grid-j {
+        display: none;
+    }
+
+    .main-heading button {
+        display: none;
     }
 }
 
@@ -871,6 +905,10 @@ input[type="search"]::-webkit-search-results-decoration {
 @media (max-width: 1024px) {
     .swiper {
         width: 98%;
+    }
+
+    .section-courses {
+        margin-top: 80px;
     }
 }
 
