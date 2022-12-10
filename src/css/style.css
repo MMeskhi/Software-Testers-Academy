@@ -140,7 +140,7 @@ img {
     display: none;
 
     position: fixed;
-    right: 6px;
+    right: 8px;
 }
 
 .hamburger-menu-button-open {
@@ -804,6 +804,22 @@ input[type="search"]::-webkit-search-results-decoration {
     .sidebar-active,
     .sidebar-active-active {
         transition: all 0.5s ease;
+    }
+
+    .sidebar-active .sidebar-cats,
+    .sidebar .sidebar-cats,
+    .sidebar-active .search,
+    .sidebar .search {
+        margin-top: 40px;
+    }
+
+    .sidebar-active .sidebar-cats, .sidebar .sidebar-cats {
+        gap: 24px;
+    }
+
+    .sidebar-active .log-reg, .sidebar .log-reg {
+        margin-top: 40px;
+        margin-bottom: 16px;
     }
 
     .logo {
@@ -1493,16 +1509,28 @@ input[type="search"]::-webkit-search-results-decoration {
         margin-top: 45px;
     }
 
+    .section-brands .section-brands-cont .swiper {
+        margin-top: 0px;
+    }
+
     .section-courses .section-courses-cont .swiper-slide {
         min-height: 452px;
+    }
+
+    .section-courses .section-courses-cont {
+        margin: 38px auto 56px auto;
+    }
+
+    .section-blog .section-blog-cont {
+        margin: 40px auto 48px auto;
     }
 
     .section-blog .section-blog-cont .swiper-slide {
         min-height: 260px;
     }
 
-    .section-blog .section-blog-cont .swiper-slide .slide-cont {
-        bottom: 8%;
+    .section-brands .section-brands-cont .swiper-slide .slide-cont {
+        margin: 24px 0;
     }
 
     .section-blog .section-blog-cont .swiper-slide .slide-cont h2 {
@@ -1511,6 +1539,22 @@ input[type="search"]::-webkit-search-results-decoration {
 
     .section-blog .section-blog-cont .swiper {
         width: 99%;
+    }
+
+    .main-heading .heading {
+        margin: 16px 0;
+    }
+
+    .section-reviews {
+        padding-top: 48px;
+    }
+
+    .reviews-cont {
+        margin: 48px 0 56px 0;
+    }
+
+    .section-brands {
+        margin: 32px 0 48px 0;
     }
 }
 
