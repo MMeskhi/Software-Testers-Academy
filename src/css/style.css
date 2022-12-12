@@ -610,13 +610,13 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .main-heading .heading {
-    height: 81px;
+    height: 100%;
     background: #FFFFFF;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 20px;
     margin: 39px 0 24px 0;
 }
 
@@ -768,7 +768,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (max-width: 1024px) {
     html {
-        font-size: 52.5%;
+        font-size: 60%%;
     }
 
     ::-webkit-scrollbar {
@@ -860,7 +860,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (max-width: 700px) {
     html {
-        font-size: 52.5%;
+        font-size: 55%;
     }
 
     .main-heading .heading h2 {
@@ -1513,10 +1513,6 @@ input[type="search"]::-webkit-search-results-decoration {
         margin-top: 0px;
     }
 
-    .section-courses .section-courses-cont .swiper-slide {
-        min-height: 452px;
-    }
-
     .section-courses .section-courses-cont {
         margin: 38px auto 56px auto;
     }
@@ -1555,6 +1551,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
     .section-brands {
         margin: 32px 0 48px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .swiper-slide {
+        min-height: 452px;
     }
 }
 
@@ -1695,14 +1697,16 @@ footer .footer-bottom span a:hover {
         flex-direction: column;
         align-items: center;
         padding: 48px 0;
+        gap: 70px;
     }
 
     footer .footer-cont {
         padding-right: 0;
     }
 
-    footer .footer-bottom {
-        justify-content: flex-start;
+    footer .footer-cont .footer-left {
+        align-items: center;
+        gap: 30px;
     }
 }
 
@@ -1719,5 +1723,13 @@ footer .footer-bottom span a:hover {
 
     footer .footer-cont .footer-right .footer-col {
         gap: 16px;
+    }
+
+    footer .footer-cont .footer-left {
+        align-items: flex-start;
+    }
+
+    footer .footer-bottom {
+        justify-content: flex-start;
     }
 }
