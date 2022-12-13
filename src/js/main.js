@@ -14,63 +14,6 @@ sidebarCats.forEach((btn) => {
   });
 });
 
-const swiper = new Swiper(".section-courses .swiper", {
-  spaceBetween: 24,
-
-  navigation: {
-    nextEl: ".section-courses .swiper-button-next",
-    prevEl: ".section-courses .swiper-button-prev",
-  },
-  breakpoints: {
-    300: {
-      slidesPerView: 1.1,
-    },
-    700: {
-      slidesPerView: 2,
-    },
-    1400: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-const swiper2 = new Swiper(".section-blog .swiper", {
-  spaceBetween: 24,
-
-  navigation: {
-    nextEl: ".section-blog .swiper-button-next",
-    prevEl: ".section-blog .swiper-button-prev",
-  },
-  breakpoints: {
-    300: {
-      slidesPerView: 1.1,
-    },
-    700: {
-      slidesPerView: 1.7,
-    },
-    1400: {
-      slidesPerView: 2.2,
-    },
-  },
-});
-
-const swiper3 = new Swiper(".section-brands .swiper", {
-  spaceBetween: 166,
-  breakpoints: {
-    300: {
-      slidesPerView: 2,
-      spaceBetween: 41.5,
-    },
-    700: {
-      slidesPerView: 3,
-      spaceBetween: 83,
-    },
-    1400: {
-      slidesPerView: 4,
-    },
-  },
-});
-
 const reviewCardSelector = document.querySelectorAll(".review-card");
 
 reviewCardSelector.forEach((btn, index) => {
@@ -101,9 +44,72 @@ reviewCardSelector.forEach((btn, index) => {
 const elementToView = document.querySelector(".section-courses-cont");
 const scrollBtn = document.querySelector(".main-btn-scroll");
 
-scrollBtn.addEventListener("click", function () {
-  elementToView.scrollIntoView();
-});
+if (document.getElementById("mainPage")) {
+  scrollBtn.addEventListener("click", function () {
+    elementToView.scrollIntoView();
+  });
+
+  const swiper = new Swiper(".section-courses .swiper", {
+    spaceBetween: 24,
+
+    navigation: {
+      nextEl: ".section-courses .swiper-button-next",
+      prevEl: ".section-courses .swiper-button-prev",
+    },
+    breakpoints: {
+      300: {
+        slidesPerView: 1.1,
+      },
+      700: {
+        slidesPerView: 2,
+      },
+      1400: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
+  const swiper2 = new Swiper(".section-blog .swiper", {
+    spaceBetween: 24,
+
+    navigation: {
+      nextEl: ".section-blog .swiper-button-next",
+      prevEl: ".section-blog .swiper-button-prev",
+    },
+    breakpoints: {
+      300: {
+        slidesPerView: 1.1,
+      },
+      700: {
+        slidesPerView: 1.7,
+      },
+      1400: {
+        slidesPerView: 2.2,
+      },
+    },
+  });
+
+  const swiper3 = new Swiper(".section-brands .swiper", {
+    spaceBetween: 166,
+    breakpoints: {
+      300: {
+        slidesPerView: 2,
+        spaceBetween: 41.5,
+      },
+      700: {
+        slidesPerView: 3,
+        spaceBetween: 83,
+      },
+      1400: {
+        slidesPerView: 4,
+      },
+    },
+  });
+
+  if (window.matchMedia("(max-width: 1024px)").matches) {
+    mouseText.innerHTML = "შეეხე  შეფასებას";
+  }
+}
 
 const hamburgerBtn = document.getElementById("hamburger-menu"),
   hamburgerSpan = hamburgerBtn.getElementsByTagName("span")[0];
@@ -141,7 +147,6 @@ const mouseText = document.querySelector(".mouse-click-over");
 if (window.matchMedia("(max-width: 1024px)").matches) {
   sidebar.classList.remove("sidebar");
   sidebar.classList.add("sidebar-active");
-  mouseText.innerHTML = "შეეხე  შეფასებას";
 
   reviewCardSelector.forEach((btn, index) => {
     btn.addEventListener("click", () => {
