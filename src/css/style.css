@@ -1115,6 +1115,18 @@ input[type="search"]::-webkit-search-results-decoration {
     width: fit-content;
 }
 
+.swiper-slide .slide-head img:hover,
+.courses-card .slide-head img:hover {
+    opacity: 0.9;
+}
+
+.swiper-slide .slide-bottom-bottom a:hover,
+.courses-card .slide-bottom-bottom a:hover,
+.swiper-slide .slide-bottom-heading a:hover,
+.courses-card .slide-bottom-heading a:hover {
+    opacity: 0.8;
+}
+
 .swiper-button-next::after {
     display: none;
 }
