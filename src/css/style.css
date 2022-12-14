@@ -1214,6 +1214,11 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 24px;
     cursor: pointer;
     overflow: hidden;
+    transition: none;
+}
+
+.section-reviews-cont .review-card:hover {
+    outline: 1.5px solid rgba(2, 132, 219, 0.315);
 }
 
 .section-reviews-cont .review-card-open {
@@ -1221,7 +1226,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-reviews-cont .review-card-active {
-    outline: 1.5px solid rgba(2, 131, 219, 0.61);
+    outline: 1.5px solid rgba(2, 131, 219, 0.61) !important;
 }
 
 .section-reviews-cont .review-card .reviewer-pic {
@@ -1327,8 +1332,8 @@ input[type="search"]::-webkit-search-results-decoration {
     position: absolute;
     top: 50%;
     left: 63%;
-    transform: translate(-50%, -50%) scale(25%);
-    transition: all 0.4s ease;
+    transform: translate(-25%, -62%) scale(70%);
+    transition: opacity 0ms ease;
 
     max-width: 461px;
     width: 100%;
@@ -1342,7 +1347,7 @@ input[type="search"]::-webkit-search-results-decoration {
     transform: translate(-25%, -62%) scale(100%);
     opacity: 1;
     z-index: 1;
-    transition: all 0.8s ease;
+    transition: all 0.4s ease;
 }
 
 .section-reviews-cont .review h6 {
@@ -1420,6 +1425,8 @@ input[type="search"]::-webkit-search-results-decoration {
     .reviews-cont .review-card {
         max-width: none;
         justify-content: flex-start;
+
+        transition: all 0.3s ease;
     }
 
     .section-reviews-cont .review-opened {
@@ -1428,7 +1435,11 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 
     .section-reviews-cont .review-card-active {
-        outline: none;
+        outline: none !important;
+    }
+
+    .section-reviews-cont .review-card:hover {
+        outline: none !important;
     }
 }
 

@@ -17,7 +17,7 @@ sidebarCats.forEach((btn) => {
 const reviewCardSelector = document.querySelectorAll(".review-card");
 
 reviewCardSelector.forEach((btn, index) => {
-  btn.addEventListener("mouseover", () => {
+  btn.addEventListener("click", () => {
     const changeReview = (active) => {
       for (let i = 0; i < reviewCardSelector.length; i++) {
         reviewCardSelector[i].classList.remove("active");
@@ -31,7 +31,7 @@ reviewCardSelector.forEach((btn, index) => {
 const reviewCard = document.querySelectorAll(".review");
 
 reviewCardSelector.forEach((btn, index) => {
-  btn.addEventListener("mouseover", () => {
+  btn.addEventListener("click", () => {
     for (let i = 0; i < reviewCardSelector.length; i++) {
       reviewCard[i].classList.remove("review-active");
       reviewCardSelector[i].classList.remove("review-card-active");
@@ -105,10 +105,6 @@ if (document.getElementById("mainPage")) {
       },
     },
   });
-
-  if (window.matchMedia("(max-width: 1024px)").matches) {
-    mouseText.innerHTML = "შეეხე  შეფასებას";
-  }
 }
 
 const hamburgerBtn = document.getElementById("hamburger-menu"),
