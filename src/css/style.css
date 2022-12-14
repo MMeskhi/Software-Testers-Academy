@@ -1327,13 +1327,12 @@ input[type="search"]::-webkit-search-results-decoration {
     position: absolute;
     top: 50%;
     left: 63%;
-    transform: translate(-50%, -50%) scale(0%);
-    transition: all 0.2s linear;
+    transform: translate(-50%, -50%) scale(25%);
+    transition: all 0.4s ease;
 
     max-width: 461px;
     width: 100%;
     opacity: 0;
-    visibility: hidden;
     z-index: -2;
 }
 
@@ -1342,9 +1341,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
     transform: translate(-25%, -62%) scale(100%);
     opacity: 1;
-    visibility: visible;
     z-index: 1;
-    transition: all 0.4s linear;
+    transition: all 0.8s ease;
 }
 
 .section-reviews-cont .review h6 {
