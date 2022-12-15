@@ -14,6 +14,72 @@ sidebarCats.forEach((btn) => {
   });
 });
 
+//Mobile sidebar
+const hamburgerBtn = document.getElementById("hamburger-menu"),
+  hamburgerSpan = hamburgerBtn.getElementsByTagName("span")[0];
+
+hamburgerBtn.onclick = function () {
+  hamburgerSpan.classList.toggle("hamburger-menu-button-close");
+};
+
+const sidebar = document.querySelector(".sidebar");
+const mouseText = document.querySelector(".mouse-click-over");
+
+// sidebar.addEventListener("mouseover", function () {
+//   noScroll.classList.add("no-scroll");
+// });
+
+// sidebar.addEventListener("mouseout", function () {
+//   noScroll.classList.remove("no-scroll");
+// });
+
+// if (window.matchMedia("(max-width: 1024px)").matches) {
+//   sidebar.classList.remove("sidebar");
+//   sidebar.classList.add("sidebar-active");
+//   mouseText.innerHTML = "შეეხე  შეფასებას";
+
+//   reviewCardSelector.forEach((btn, index) => {
+//     btn.addEventListener("click", () => {
+//       for (let i = 0; i < reviewCardSelector.length; i++) {
+//         reviewCardSelector[i].classList.remove("review-card-open");
+//       }
+//       reviewCardSelector[index].classList.add("review-card-open");
+//     });
+//   });
+// }
+
+if (window.matchMedia("(max-width: 1024px)").matches) {
+  sidebar.classList.remove("sidebar");
+  sidebar.classList.add("sidebar-active");
+
+  reviewCardSelector.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const filterToggle = () => {
+        reviewCardSelector[index].classList.toggle("review-card-open");
+      };
+      filterToggle(btn, index);
+    });
+  });
+}
+
+const sidebarMobile = document.querySelector(".sidebar-active");
+const noScroll = document.querySelector("body");
+const logo = document.querySelector(".logo-img");
+
+function openSidebar() {
+  sidebar.classList.toggle("sidebar-active-active");
+  noScroll.classList.toggle("no-scroll");
+  logo.classList.toggle("logo-hide");
+  // topFunction();
+}
+
+hamburgerBtn.addEventListener("click", openSidebar);
+
+// function topFunction() {
+//   document.body.scrollTop = 0;
+//   document.documentElement.scrollTop = 0;
+// }
+
 const reviewCardSelector = document.querySelectorAll(".review-card");
 
 reviewCardSelector.forEach((btn, index) => {
@@ -41,7 +107,8 @@ reviewCardSelector.forEach((btn, index) => {
   });
 });
 
-const elementToView = document.querySelector(".section-courses-cont");
+//Sliders
+const elementToView = document.querySelector(".section-courses");
 const scrollBtn = document.querySelector(".main-btn-scroll");
 
 if (document.getElementById("mainPage")) {
@@ -106,69 +173,3 @@ if (document.getElementById("mainPage")) {
     },
   });
 }
-
-const hamburgerBtn = document.getElementById("hamburger-menu"),
-  hamburgerSpan = hamburgerBtn.getElementsByTagName("span")[0];
-
-hamburgerBtn.onclick = function () {
-  hamburgerSpan.classList.toggle("hamburger-menu-button-close");
-};
-
-const sidebar = document.querySelector(".sidebar");
-const mouseText = document.querySelector(".mouse-click-over");
-
-// sidebar.addEventListener("mouseover", function () {
-//   noScroll.classList.add("no-scroll");
-// });
-
-// sidebar.addEventListener("mouseout", function () {
-//   noScroll.classList.remove("no-scroll");
-// });
-
-// if (window.matchMedia("(max-width: 1024px)").matches) {
-//   sidebar.classList.remove("sidebar");
-//   sidebar.classList.add("sidebar-active");
-//   mouseText.innerHTML = "შეეხე  შეფასებას";
-
-//   reviewCardSelector.forEach((btn, index) => {
-//     btn.addEventListener("click", () => {
-//       for (let i = 0; i < reviewCardSelector.length; i++) {
-//         reviewCardSelector[i].classList.remove("review-card-open");
-//       }
-//       reviewCardSelector[index].classList.add("review-card-open");
-//     });
-//   });
-// }
-
-if (window.matchMedia("(max-width: 1024px)").matches) {
-  sidebar.classList.remove("sidebar");
-  sidebar.classList.add("sidebar-active");
-
-  reviewCardSelector.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      const filterToggle = () => {
-        reviewCardSelector[index].classList.toggle("review-card-open");
-      };
-      filterToggle(btn, index);
-    });
-  });
-}
-
-//Mobile sidebar
-const sidebarMobile = document.querySelector(".sidebar-active");
-const noScroll = document.querySelector("body");
-const logo = document.querySelector(".logo-img");
-
-function openSidebar() {
-  sidebar.classList.toggle("sidebar-active-active");
-  noScroll.classList.toggle("no-scroll");
-  logo.classList.toggle("logo-hide");
-  // topFunction();
-}
-
-hamburgerBtn.addEventListener("click", openSidebar);
-
-// function topFunction() {
-//   document.body.scrollTop = 0;
-//   document.documentElement.scrollTop = 0;
-// }

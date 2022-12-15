@@ -196,11 +196,8 @@ img {
 /* Sidebar */
 main,
 footer {
-    position: static;
-    top: 0;
     right: 96px;
     width: calc(100% - 96px);
-    z-index: 2;
 }
 
 .sidebar {
@@ -794,11 +791,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
     main,
     footer {
-        position: unset;
-        top: 0;
-        right: 0;
         width: 100%;
-        z-index: 2;
     }
 
     .sidebar-active,
