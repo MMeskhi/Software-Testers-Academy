@@ -48,20 +48,6 @@ const mouseText = document.querySelector(".mouse-click-over");
 //   });
 // }
 
-if (window.matchMedia("(max-width: 1024px)").matches) {
-  sidebar.classList.remove("sidebar");
-  sidebar.classList.add("sidebar-active");
-
-  reviewCardSelector.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      const filterToggle = () => {
-        reviewCardSelector[index].classList.toggle("review-card-open");
-      };
-      filterToggle(btn, index);
-    });
-  });
-}
-
 const sidebarMobile = document.querySelector(".sidebar-active");
 const noScroll = document.querySelector("body");
 const logo = document.querySelector(".logo-img");
@@ -106,6 +92,20 @@ reviewCardSelector.forEach((btn, index) => {
     reviewCardSelector[index].classList.add("review-card-active");
   });
 });
+
+if (window.matchMedia("(max-width: 1024px)").matches) {
+  sidebar.classList.remove("sidebar");
+  sidebar.classList.add("sidebar-active");
+
+  reviewCardSelector.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const filterToggle = () => {
+        reviewCardSelector[index].classList.toggle("review-card-open");
+      };
+      filterToggle(btn, index);
+    });
+  });
+}
 
 //Sliders
 const elementToView = document.querySelector(".section-courses");
