@@ -1,3 +1,6 @@
+//Preload no transitions
+document.body.classList.remove("preload");
+
 //Sidebar
 const sidebarCats = document.querySelectorAll(".sidebar-menu-drp");
 
@@ -107,6 +110,64 @@ if (window.matchMedia("(max-width: 1024px)").matches) {
   });
 }
 
+//Courses internal Page
+const abtSelector = document.querySelectorAll(".abt-selector .select");
+
+abtSelector.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const changeGallery = (active) => {
+      for (let i = 0; i < abtSelector.length; i++) {
+        abtSelector[i].classList.remove("active");
+      }
+      active.classList.add("active");
+    };
+    changeGallery(btn);
+  });
+});
+
+const selectorSelection = document.querySelectorAll(".selector-selection");
+
+abtSelector.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    for (let i = 0; i < abtSelector.length; i++) {
+      selectorSelection[i].classList.remove("selection-active");
+      abtSelector[i].classList.remove("active");
+    }
+    selectorSelection[index].classList.add("selection-active");
+    abtSelector[index].classList.add("active");
+  });
+});
+
+const syllabusListToggler = document.querySelectorAll(".syllabus-heading");
+
+syllabusListToggler.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parentList = btn.closest(".syllabus-box");
+    const syllabusListToggle = () => {
+      parentList.classList.toggle("syllabus-box-folded");
+    };
+    syllabusListToggle(btn);
+  });
+});
+
+//FAQ Page
+const faqBoxToggler = document.querySelectorAll(".faq-qa-box-heading");
+
+faqBoxToggler.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parentFaqBox = btn.closest(".faq-qa-box");
+    const faqOpenToggle = parentFaqBox.querySelector(".faq-qa-box-answers");
+    const faqBoxTogglerDrp = parentFaqBox.querySelector(
+      ".faq-qa-box-heading .drp"
+    );
+    const faqBoxToggle = () => {
+      faqOpenToggle.classList.toggle("faq-qa-box-answers-open");
+      faqBoxTogglerDrp.classList.toggle("drp-open");
+    };
+    faqBoxToggle(btn);
+  });
+});
+
 //Sliders
 const elementToView = document.querySelector(".section-courses");
 const scrollBtn = document.querySelector(".main-btn-scroll");
@@ -169,6 +230,29 @@ if (document.getElementById("mainPage")) {
       },
       1400: {
         slidesPerView: 4,
+      },
+    },
+  });
+}
+
+if (document.getElementById("aboutUs")) {
+  const swiper4 = new Swiper(".about-us-slider .mySwiper", {
+    spaceBetween: 16,
+    breakpoints: {
+      300: {
+        slidesPerView: 1.2,
+      },
+      500: {
+        slidesPerView: 2,
+      },
+      700: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      1500: {
+        slidesPerView: 5,
       },
     },
   });

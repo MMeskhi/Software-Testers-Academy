@@ -31,6 +31,13 @@
     background: rgba(2, 132, 219, 0.8);
 }
 
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -43,6 +50,12 @@ body {
     max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    transition: none;
 }
 
 button {
@@ -200,6 +213,22 @@ footer {
     width: calc(100% - 96px);
 }
 
+main {
+    flex: 1;
+}
+
+#mainPage {
+    margin-bottom: 48px;
+}
+
+#coursesListing {
+    margin-bottom: 120px;
+}
+
+#coursesInternal {
+    margin-bottom: 80px;
+}
+
 .sidebar {
     height: 100%;
     width: 96px;
@@ -256,10 +285,10 @@ footer {
 
 }
 
-.sidebar-active ul li a.active img,
-.sidebar-active ul li a.active span,
-.sidebar ul li a.active img,
-.sidebar ul li a.active span {
+.sidebar-active ul li a[aria-current="page"] img,
+.sidebar-active ul li a[aria-current="page"] span,
+.sidebar ul li a[aria-current="page"] img,
+.sidebar ul li a[aria-current="page"] span {
     opacity: 1;
     color: #01375C;
 }
@@ -383,18 +412,20 @@ footer {
 .sidebar-active .log-reg button,
 .sidebar:hover .log-reg button {
     width: 116px !important;
-    justify-content: space-evenly !important;
+    justify-content: space-between !important;
+    padding: 0 14px 0 18px;
 }
 
 .sidebar-active .log-reg button span,
 .sidebar-active .log-reg a,
-.sidebar-active .sidebar-menu-drp .drp,
 .sidebar:hover .log-reg button span,
-.sidebar:hover .log-reg a,
-.sidebar:hover .sidebar-menu-drp .drp {
-    display: block !important;
+.sidebar:hover .log-reg a {
+    transform: translateX(0) !important;
+    position: unset !important;
 }
 
+.sidebar-active .sidebar-menu-drp .drp,
+.sidebar:hover .sidebar-menu-drp .drp,
 .sidebar-active .log-reg a,
 .sidebar:hover .log-reg a {
     display: block !important;
@@ -523,7 +554,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .sidebar-active .log-reg button span,
 .sidebar .log-reg button span {
-    display: none;
+    transform: translateX(80px);
+    position: absolute;
 
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
@@ -574,8 +606,8 @@ input[type="search"]::-webkit-search-results-decoration {
     padding: 0px;
     gap: 16.5px;
     max-height: 0px;
-    opacity: 0;
     visibility: hidden;
+    overflow: hidden;
 }
 
 .sidebar-menu-drp .sidebar-menu-drp-cat-active {
@@ -765,7 +797,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (max-width: 1024px) {
     html {
-        font-size: 60%%;
+        font-size: 60%;
     }
 
     ::-webkit-scrollbar {
@@ -859,6 +891,14 @@ input[type="search"]::-webkit-search-results-decoration {
     .main-heading .heading h2 {
         font-size: 2rem;
     }
+
+    .container-a {
+        width: 96%;
+    }
+
+    .container-b {
+        width: 96%;
+    }
 }
 
 /* Section Courses */
@@ -889,7 +929,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-courses .section-courses-cont .section-courses-cont-heading h3,
-.section-reviews .section-reviews-cont .section-reviews-cont-heading h3 {
+.section-reviews .section-reviews-cont .section-reviews-cont-heading h3,
+.section-blog .section-blog-cont .section-blog-cont-heading h3,
+.section-brands .section-brands-cont .section-brands-cont-heading h3 {
     font-family: 'Helvetica Neue LT GEO';
     font-weight: 700;
     font-size: 3.2rem;
@@ -897,7 +939,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-courses .section-courses-cont .section-courses-cont-heading p,
-.section-reviews .section-reviews-cont .section-reviews-cont-heading p {
+.section-reviews .section-reviews-cont .section-reviews-cont-heading p,
+.section-blog .section-blog-cont .section-blog-cont-heading p,
+.section-brands .section-brands-cont .section-brands-cont-heading p {
     font-family: 'FiraGO';
     font-style: italic;
     font-weight: 400;
@@ -905,6 +949,16 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #FFFFFF;
     margin-top: 16px;
     opacity: 0.6;
+    text-align: center;
+}
+
+.section-reviews .section-reviews-cont .section-reviews-cont-heading h3,
+.section-blog .section-blog-cont .section-blog-cont-heading h3,
+.section-brands .section-brands-cont .section-brands-cont-heading h3,
+.section-reviews .section-reviews-cont .section-reviews-cont-heading p,
+.section-blog .section-blog-cont .section-blog-cont-heading p,
+.section-brands .section-brands-cont .section-brands-cont-heading p {
+    color: #00365B;
 }
 
 .swiper {
@@ -934,9 +988,10 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: 18px;
     background: #fff;
     height: 100%;
-    min-height: 578px;
+    min-height: 360px;
     width: 100%;
     border-radius: 8px;
+    padding-bottom: 24px;
 
     /* Center slide text vertically */
     display: -webkit-box;
@@ -968,7 +1023,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .swiper-slide .slide-bottom-cont,
 .courses-card .slide-bottom-cont {
-    padding: 24px 24px 0 24px;
+    padding: 8px 24px 0 24px;
 }
 
 .swiper-slide .slide-bottom,
@@ -978,28 +1033,51 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .swiper-slide .tag,
-.courses-card .tag {
+.courses-card .tag,
+.courses-int-left-heading .tag,
+.courses-int-left-heading .tag {
     width: fit-content;
     height: 26px;
     border-radius: 4px;
-    padding: 0 6px;
+    padding: 2px 6px;
     display: inline-flex;
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 400;
     font-size: 1.4rem;
     white-space: nowrap;
-    align-items: center;
+
+    position: relative;
+    bottom: 2px;
+}
+
+.courses-int-left-heading .tag,
+.courses-int-left-heading .tag {
+    position: static;
+}
+
+.swiper-slide .tag span,
+.courses-card .tag span,
+.courses-int-left-heading .tag span,
+.courses-int-left-heading .tag span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
 }
 
 .swiper-slide .bs,
-.courses-card .bs {
+.courses-card .bs,
+.courses-int-left-heading .bs,
+.courses-int-left-heading .bs {
     background: var(--primary);
     color: #fff;
 }
 
 .swiper-slide .new,
-.courses-card .new {
+.courses-card .new,
+.courses-int-left-heading .new,
+.courses-int-left-heading .new {
     background: #F2C94C;
     color: #222;
 }
@@ -1185,11 +1263,6 @@ input[type="search"]::-webkit-search-results-decoration {
     text-align: center;
 }
 
-.section-reviews .section-reviews-cont .section-reviews-cont-heading h3,
-.section-reviews .section-reviews-cont .section-reviews-cont-heading p {
-    color: #00365B;
-}
-
 .section-reviews-cont .review-card {
     display: flex;
     flex-direction: column;
@@ -1215,7 +1288,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .section-reviews-cont .review-card-open {
-    max-height: 1000px;
+    max-height: 500px;
 }
 
 .section-reviews-cont .review-card-active {
@@ -1257,6 +1330,11 @@ input[type="search"]::-webkit-search-results-decoration {
     font-weight: 400;
     font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.section-reviews-cont .bank img {
+    width: 20px;
+    height: 20px;
 }
 
 .section-reviews-cont .prof-eng {
@@ -1360,7 +1438,7 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 72px 0;
+    margin: 64px 0;
     position: relative;
 }
 
@@ -1419,7 +1497,7 @@ input[type="search"]::-webkit-search-results-decoration {
         max-width: none;
         justify-content: flex-start;
 
-        transition: all 0.3s ease;
+        transition: max-height 0.3s linear, height 0.3s linear;
     }
 
     .section-reviews-cont .review-opened {
@@ -1433,6 +1511,16 @@ input[type="search"]::-webkit-search-results-decoration {
 
     .section-reviews-cont .review-card:hover {
         outline: none !important;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .swiper-slide .tag,
+    .courses-card .tag,
+    .courses-int-left-heading .tag,
+    .courses-int-left-heading .tag {
+        height: 22px;
     }
 }
 
@@ -1451,13 +1539,6 @@ input[type="search"]::-webkit-search-results-decoration {
     margin: 72px auto 112px auto;
 }
 
-.section-blog .section-blog-cont .section-blog-cont-heading h3 {
-    font-family: 'Helvetica Neue LT GEO';
-    font-weight: 700;
-    font-size: 3.2rem;
-    color: #00365B;
-}
-
 .section-blog .section-blog-cont .swiper-button-prev,
 .section-blog .section-blog-cont .swiper-button-next {
     box-shadow: 0px 0px 20px #597dbc1a;
@@ -1472,6 +1553,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .section-blog .section-blog-cont .swiper-slide {
     max-width: 743px;
+    width: 100% !important;
     min-height: 578px;
     background: linear-gradient(84.35deg, rgba(17, 17, 17, 0.7) 41.6%, rgba(55, 55, 55, 0.7) 100%), url(../img/Rectangle\ 28.jpg);
     background-repeat: no-repeat;
@@ -1486,12 +1568,16 @@ input[type="search"]::-webkit-search-results-decoration {
     opacity: 0.95;
 }
 
+.section-blog .section-blog-cont .swiper-slide:hover .slide-cont h2 {
+    opacity: 0.8;
+}
+
 .section-blog .section-blog-cont .swiper-slide .slide-cont {
     position: absolute;
-    top: 10%;
-    bottom: 11%;
-    left: 10%;
-    right: 10%;
+    top: 8%;
+    bottom: 10%;
+    left: 8%;
+    right: 8%;
 
     display: flex;
     justify-content: space-between;
@@ -1503,7 +1589,7 @@ input[type="search"]::-webkit-search-results-decoration {
     font-family: 'Helvetica Neue LT GEO';
     font-style: normal;
     font-weight: 700;
-    font-size: 4.8rem;
+    font-size: 4rem;
     color: #FFFFFF;
 
     max-width: 565px;
@@ -1516,7 +1602,16 @@ input[type="search"]::-webkit-search-results-decoration {
     background: #fff;
     display: flex;
     justify-content: center;
-    margin: 72px 0;
+    margin-top: 48px;
+}
+
+.section-brands .section-brands-cont .section-brands-cont-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 48px 0 26px 0;
 }
 
 .section-brands .section-brands-cont .swiper {
@@ -1657,6 +1752,10 @@ footer .footer-cont .footer-left .footer-socials img {
     height: 28px;
 }
 
+footer .footer-cont .footer-left .footer-socials a:last-child img {
+    height: 27px;
+}
+
 footer .footer-cont .footer-left .footer-socials img:hover {
     opacity: 0.8;
 }
@@ -1789,7 +1888,7 @@ footer .footer-bottom span a:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 24px;
-    margin: 32px 0 120px 0;
+    margin-top: 32px;
 }
 
 @media (max-width: 1024px) {
@@ -1801,5 +1900,1839 @@ footer .footer-bottom span a:hover {
 @media (max-width: 700px) {
     .courses-list-cont {
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/* Courses internal page */
+.container-c {
+    max-width: 804px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.courses-int-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.courses-int-left-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.courses-int-left-heading h2 {
+    margin-right: 11px;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: #00365B;
+    white-space: nowrap;
+}
+
+.courses-int-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    position: sticky;
+    top: 24px;
+    right: 0;
+}
+
+.courses-int-right-hero {
+    background-image: url(../img/306541543_5823850554312438_1817601669195200482_n\ 1.png);
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 620px;
+    max-width: 804px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.courses-int-right-vid-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.courses-int-right-vid-box {
+    height: 174px;
+    max-width: 804px;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+    border-radius: 8px;
+    padding: 8px;
+    gap: 24px;
+
+    display: flex;
+}
+
+.courses-int-right-vid {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+    border-radius: 4px;
+    min-width: 276px;
+    height: 158px;
+    object-fit: cover;
+    cursor: pointer;
+
+    background-image: url(../img/Rectangle\ 13.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.courses-int-right-vid:hover {
+    opacity: 0.95;
+}
+
+.courses-int-right-vid:hover .courses-int-right-vid-play {
+    background: #0283DB;
+}
+
+.courses-int-right-vid:hover .courses-int-right-vid-play img {
+    filter: brightness(0) invert(1);
+}
+
+.courses-int-right-vid-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 48px;
+    height: 48px;
+    background: #D9D9D9;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses-int-right-vid-play img {
+    width: 18px;
+    height: 18px;
+}
+
+.courses-int-right-vid-about {
+    max-width: 375px;
+    width: 100%;
+    gap: 12px;
+    padding: 26px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.courses-int-right-vid-about h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+}
+
+.courses-int-right-vid-about p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #393939;
+    overflow-y: hidden;
+}
+
+.courses-int-left-time-box {
+    height: 100%;
+    max-width: 804px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 7px rgb(178 178 178 / 25%);
+    border-radius: 8px;
+    margin-top: 24px;
+    padding: 24px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.courses-int-left-time-box .time-box-line .time-box-line-bottom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.courses-int-left-time-box .time-box-line {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.courses-int-left-time-box .time-box-line-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.courses-int-left-time-box h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #070707;
+}
+
+.courses-int-left-time-box span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+}
+
+.courses-int-left-time-box .vl {
+    border-left: 1px solid #BCBCBC;
+    height: 19px;
+    border-radius: 3px;
+    margin-top: 2px;
+}
+
+.courses-int-cont-courses-list {
+    margin-top: 72px;
+}
+
+.courses-int-cont-courses-list h2 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: #00365B;
+}
+
+.courses-int-cont-courses-list .courses-list-cont {
+    margin-top: 24px;
+}
+
+.courses-int-left-price-box {
+    height: 100%;
+    max-width: 804px;
+    width: 100%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+    border-radius: 8px;
+    padding: 32px 32px 29px 32px;
+    gap: 80px;
+    margin: 16px 0 32px 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-chk h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #000000;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-chk .price-time {
+    font-family: 'FiraGO';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: rgba(86, 86, 86, 0.6);
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-price .price {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 4rem;
+    color: #0283DB;
+
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-price .price-disc {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.4rem;
+    text-decoration-line: line-through;
+    color: #EB5757;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-price .price-time {
+    font-family: 'FiraGO';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #565656;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift {
+    display: flex;
+    gap: 12px;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-reg,
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-gift,
+.courses-int-left-price-box .courses-int-left-price-box-right .installment-btn button {
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+    border-radius: 44px;
+    width: fit-content;
+    height: 52px;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 17.5px 16px 17.5px 24px;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-reg span,
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-gift span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-reg:hover,
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-gift:hover {
+    opacity: 0.9;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-reg {
+    background: #0283DB;
+    color: white;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-gift {
+    background: #FEC210;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.courses-int-left-price-box-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 1px solid rgba(217, 217, 217, 0.8);
+    padding-left: 32px;
+}
+
+.courses-int-left-price-box-right .installment h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    opacity: 0.6;
+}
+
+.courses-int-left-price-box-right .installment .installment-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.courses-int-left-price-box-right .installment .installment-price .price {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.8rem;
+    color: #0283DB;
+}
+
+.courses-int-left-price-box-right .installment .installment-price .price-ext {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 750;
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-right .installment-btn button {
+    padding: 0 24px;
+    border: 1px solid #0283DB;
+    filter: drop-shadow(0px 2px 14px rgba(178, 178, 178, 0.25));
+    background: inherit;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #0283DB;
+}
+
+.courses-int-left-price-box .courses-int-left-price-box-right .installment-btn button:hover {
+    opacity: 0.8;
+}
+
+.courses-int-left-abt .abt-selector {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.courses-int-left-abt .abt-selector .select {
+    height: 47px;
+    width: fit-content;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+    border-radius: 4px;
+    padding: 0 22px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses-int-left-abt .abt-selector .select:hover {
+    background: rgba(2, 132, 219, 0.1);
+}
+
+.courses-int-left-abt .abt-selector .select span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.71);
+}
+
+.courses-int-left-abt .abt-selector .active {
+    background: #0283DB;
+    box-shadow: 0px 2px 14px rgba(178, 178, 178, 0.25);
+}
+
+.courses-int-left-abt .abt-selector .active:hover {
+    background: #0283DB;
+}
+
+.courses-int-left-abt .abt-selector .active span {
+    color: #FFFFFF;
+}
+
+.selection-review {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.courses-int-left-abt .selection-review .selection-box-top,
+.courses-int-left-abt .selection-review .selection-box-bottom {
+    max-width: 804px;
+    width: 100%;
+    height: fit-content;
+    padding: 24px 240px 24px 24px;
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.courses-int-left-abt .selection-review .selection-box-top .selection-box-top-abt {
+    display: flex;
+    gap: 25px;
+}
+
+.courses-int-left-abt .selection-review .selection-box-top .selection-box-top-abt .selection-box-top-abt-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.courses-int-left-abt .selection-review .selection-box-top h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #070707;
+}
+
+.courses-int-left-abt .selection-review .selection-box-top .selection-box-top-abt span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+}
+
+.courses-int-left-abt .selection-review .selection-box-bottom h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #070707;
+}
+
+.courses-int-left-abt .selection-review .selection-box-bottom p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #393939;
+}
+
+.courses-int-left-abt .selector-selection {
+    display: none;
+}
+
+.courses-int-left-abt .selection-active {
+    display: flex;
+}
+
+.selection-student-ev .student-ev-cont {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 24px;
+}
+
+.selection-student-ev .student-ev-box {
+    max-width: 373px;
+    width: 100%;
+    height: 400px;
+    overflow-y: hidden;
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 12px 12px 24px 12px;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.selection-student-ev .student-ev-box .student-img {
+    width: 100%;
+    height: 183px;
+    object-fit: cover;
+    margin-bottom: 24px;
+    border-radius: 6px;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt h5 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt .prof {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt .prof .underline {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #393939;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt .prof span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.selection-student-ev .student-ev-box .student-ev-abt .prof img {
+    width: 20px;
+    height: 20px;
+}
+
+.selection-syllabus {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.selection-syllabus .syllabus-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 24px;
+
+    max-width: 804px;
+    width: 100%;
+    max-height: 1000px;
+    height: 100%;
+
+    transition: max-height 0.4s linear, height 0.4s linear;
+}
+
+.selection-syllabus .syllabus-box-folded {
+    overflow: hidden;
+    max-height: 71px;
+}
+
+.selection-syllabus .syllabus-box-folded .syllabus-heading img {
+    transform: rotate(-180deg);
+}
+
+.selection-syllabus .syllabus-box .syllabus-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.selection-syllabus .syllabus-box .syllabus-heading span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+
+    display: inline-flex;
+}
+
+.selection-syllabus .syllabus-box .syllabus-heading h5 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #070707;
+    opacity: 0.8;
+
+    display: inline;
+}
+
+.selection-syllabus .syllabus-box .syllabus-list {
+    margin: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.selection-syllabus .syllabus-box .syllabus-list li {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #000000;
+
+    position: relative;
+    padding-left: 12px;
+}
+
+.selection-syllabus .syllabus-box .syllabus-list li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0283DB;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.selection-lecturer .lecturer-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 24px;
+
+    max-width: 804px;
+    width: 100%;
+    height: fit-content;
+}
+
+.selection-lecturer .lecturer-box h2 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.0rem;
+    color: #393939;
+    padding-left: 6px;
+}
+
+.selection-lecturer .lecturer-box .prof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 6px;
+
+    margin: 24px 0 40px 0;
+}
+
+.selection-lecturer .lecturer-box .prof img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.selection-lecturer .lecturer-box .lecturer-abt {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    max-width: 500px;
+    width: 100%;
+}
+
+.selection-lecturer .lecturer-box .lecturer-abt h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: rgba(7, 7, 7, 0.8);
+    margin-bottom: -12px;
+}
+
+.selection-lecturer .lecturer-box .lecturer-abt p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: rgba(57, 57, 57, 0.9);
+}
+
+@media (max-width: 1024px) {
+    .container-c {
+        max-width: none;
+    }
+
+    .courses-int-cont {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .courses-list-cont {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .courses-int-left-price-box {
+        height: 100%;
+        max-width: none;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .courses-int-left-price-box .courses-int-left-price-box-left {
+        gap: 40px;
+    }
+
+    .courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-reg, .courses-int-left-price-box .courses-int-left-price-box-left .courses-int-left-price-box-reg-gift .courser-gift, .courses-int-left-price-box .courses-int-left-price-box-right .installment-btn button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .courses-int-left-price-box-right {
+        flex-direction: row;
+        border-top: 1px solid rgba(217, 217, 217, 0.8);
+        border-left: none;
+        padding-left: 0;
+        padding-top: 32px;
+    }
+
+    .courses-int-left-abt .abt-selector {
+        flex-direction: column;
+    }
+
+    .courses-int-left-abt .abt-selector .select {
+        width: 100%;
+    }
+
+    .courses-int-left-abt .selection-review .selection-box-top, .courses-int-left-abt .selection-review .selection-box-bottom {
+        padding: 24px 24px 24px 24px;
+        max-width: none;
+    }
+
+    .selection-student-ev .student-ev-cont {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 0;
+    }
+
+    .selection-student-ev .student-ev-box {
+        max-width: none;
+    }
+
+    .selection-student-ev .student-ev-box .student-img {
+        width: 100%;
+        height: 197px;
+    }
+
+    .selection-syllabus .syllabus-box .syllabus-list {
+        margin: 24px 0 0 0;
+    }
+
+    .selection-syllabus .syllabus-box-folded .syllabus-list {
+        margin: 64px 0 0 0;
+    }
+
+    .selection-syllabus .syllabus-box {
+        max-width: none;
+    }
+
+    .selection-lecturer .lecturer-box {
+        max-width: none;
+    }
+
+    .selection-lecturer .lecturer-box .lecturer-abt {
+        max-width: none;
+    }
+
+    .courses-int-right-hero {
+        max-width: none;
+    }
+
+    .courses-int-left-time-box {
+        max-width: none;
+    }
+
+    .courses-int-right-vid-box {
+        max-width: none;
+        flex-direction: column;
+        gap: 12px;
+        padding: 4px 4px 12px 4px;
+    }
+
+    .courses-int-right-vid-about {
+        padding-left: 6px;
+    }
+
+    .courses-int-right-vid-cont {
+        display: flex;
+    }
+
+    .courses-int-right-vid-about p {
+        display: none;
+    }
+
+    .swiper-slide, .courses-card {
+        min-height: unset;
+    }
+
+    .courses-int-cont-courses-list {
+        margin-top: 40px;
+    }
+
+    .courses-int-right-vid-about {
+        padding: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .courses-int-left-heading {
+        display: inline-block;
+    }
+
+    .courses-int-left-heading h2 {
+        white-space: normal;
+    }
+
+    .selection-syllabus .syllabus-box .syllabus-heading {
+        align-items: flex-start;
+    }
+
+    .selection-syllabus .syllabus-box-folded {
+        max-height: 88px;
+    }
+
+    .courses-int-right-hero {
+        height: 264px;
+    }
+
+    .courses-int-left-time-box .time-box-line .time-box-line-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .courses-int-left-heading h2 {
+        font-size: 3rem;
+    }
+
+    .courses-int-left-time-box .vl {
+        display: none;
+    }
+}
+
+/* About us page */
+.about-us-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 140px;
+}
+
+.about-us-article {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.about-us-cont .reverse {
+    flex-direction: row-reverse;
+}
+
+.about-us-article .article-bg {
+    max-width: 900px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.about-us-cont .video .article-bg:hover {
+    cursor: pointer;
+}
+
+.about-us-cont .video .article-bg .courses-int-right-vid-play {
+    width: 64px;
+    height: 64px;
+    background: rgba(2, 131, 219, 0.6);
+}
+
+.about-us-cont .video .article-bg .courses-int-right-vid-play img {
+    filter: brightness(0) invert(1);
+}
+
+.about-us-cont .video .article-bg:hover .courses-int-right-vid-play {
+    background: rgba(2, 131, 219, 1);
+}
+
+.about-us-cont .video .article-about .article-about-abt {
+    max-width: 438px;
+    width: 100%;
+}
+
+.about-us-article .article-about {
+    /* max-width: 900px;
+    width: 100%; */
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding-right: 80px;
+}
+
+.about-us-article .article-about h3 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #00365B99;
+    max-width: 365px;
+    width: 100%;
+}
+
+.about-us-article .article-about h3 span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #00365B;
+}
+
+.about-us-article .article-about span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: rgba(33, 33, 33, 0.4);
+}
+
+.about-us-article .article-about .article-about-abt {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #212121;
+}
+
+.about-us-article .article-about .article-about-abt p:first-child::first-line {
+    font-weight: 700;
+}
+
+.about-us-article .article-about ul {
+    padding-left: 80px;
+}
+
+.about-us-article .article-about .article-about-abt li {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.about-us-article .article-about .article-about-abt li span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.0rem;
+    color: #00365B;
+    opacity: 0.5;
+}
+
+.about-us-article .article-about .article-about-abt li .article-about-abt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-us-article .article-about .article-about-abt li .article-about-abt-list h3 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.0rem;
+    color: #00365B;
+}
+
+.about-us-article .article-about .article-about-abt li .article-about-abt-list p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #212121;
+    opacity: 0.8;
+}
+
+.about-us-slider .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.about-us-slider .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.about-us-slider .swiper-slide img {
+    display: block;
+    width: 349px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.about-us-slider .swiper-slide .about-us-slider-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.about-us-slider .swiper-slide .about-us-slider-heading h4 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #000000;
+}
+
+.about-us-slider .swiper-slide .about-us-slider-heading span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #000000;
+}
+
+.about-us-slider {
+    margin: 160px auto 80px auto;
+}
+
+@media (max-width: 1024px) {
+    .about-us-cont {
+        gap: 48px;
+    }
+
+    .about-us-article,
+    .about-us-cont .reverse {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .about-us-article .article-about,
+    .about-us-article .article-bg,
+    .about-us-article .article-bg img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .about-us-article .article-about h3,
+    .about-us-cont .video .article-about .article-about-abt {
+        max-width: none;
+    }
+
+    .about-us-article .article-about .article-about-abt {
+        padding-left: 0;
+    }
+
+    .about-us-article .article-about .article-about-abt li {
+        gap: 16px;
+    }
+
+    .about-us-slider {
+        margin: 80px auto 80px auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .about-us-cont {
+        max-width: none;
+        width: 100%;
+    }
+
+    .about-us-cont .article-about {
+        padding: 0 16px;
+    }
+
+    .about-us-slider {
+        margin: 56px auto 80px auto;
+    }
+}
+
+/* FAQ section */
+.faq {
+    margin-bottom: 240px;
+}
+
+.faq-cont .faq-qa {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.back,
+.back {
+    width: 48px;
+    height: 48px;
+    background: #FCFCFC;
+    border-radius: 50%;
+    margin-bottom: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back:hover,
+.back:hover {
+    opacity: 0.8;
+}
+
+.back img,
+.back img {
+    width: 24px;
+    height: 24px;
+}
+
+.faq-cont .faq-qa .faq-qa-box {
+    display: flex;
+    flex-direction: column;
+    background: #FCFCFC;
+    border-radius: 7px;
+    width: 100%;
+
+    padding: 32px 21px 24px 32px;
+
+    overflow: hidden;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    max-height: max-content;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-heading h3 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #00365B;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-height: 0;
+    height: 100%;
+    overflow: hidden;
+
+    transition: max-height 0.4s linear, height 0.4s linear;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-answers p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #393939;
+    opacity: 0.9;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-answers p:first-child {
+    margin-top: 24px;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-answers-open {
+    max-height: 999px;
+    height: 100%;
+
+    transition: max-height 0.4s linear, height 0.4s linear;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-heading .drp {
+    width: 100%;
+    max-width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #EEF5F9;
+    border-radius: 50%;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-heading .drp img {
+    width: 18px;
+    height: 18px;
+}
+
+.faq-cont .faq-qa .faq-qa-box .faq-qa-box-heading .drp-open img {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+    .container-c {
+        width: 95%;
+    }
+
+    s .faq {
+        margin-bottom: 80px;
+    }
+}
+
+/* Vacancies section */
+.vacancies {
+    margin-bottom: 80px;
+}
+
+.vacancies .vacancies-cont .vacancies-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancies-heading h2 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: #00365B;
+}
+
+.vacancies-heading .vacancies-search {
+    position: relative;
+
+    max-width: 496px;
+    width: 100%;
+}
+
+.blog-heading .blog-search {
+    max-width: 324px;
+}
+
+.vacancies-heading .vacancies-search button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    opacity: 0.6;
+
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 2;
+}
+
+.vacancies-heading .vacancies-search input {
+    width: 100%;
+    height: 48px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 12px rgba(70, 70, 70, 0.1);
+    border-radius: 36px;
+    border: none;
+    outline: none;
+    text-align: left;
+    text-indent: 48px;
+    padding-right: 16px;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #6B6B6B;
+    opacity: 0.6;
+}
+
+.vacancies .vacancies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.vacancies-list .vacancies-list-box {
+    width: 100%;
+    height: 100%;
+    background: #FCFCFC;
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 112px 24px 32px;
+
+    position: relative;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading h3,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading h3 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #212121;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading p,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #212121;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading .vacancies-list-box-heading-abt,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading .vacancies-int-box-heading-abt {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading .vacancies-list-box-heading-abt .abt-bt,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading .vacancies-int-box-heading-abt .abt-bt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    height: 35px;
+    padding: 0 14px 0 10px;
+
+    border: 1px solid rgba(1, 55, 92, 0.5);
+    border-radius: 50px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading .vacancies-list-box-heading-abt .abt-bt img,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading .vacancies-int-box-heading-abt .abt-bt img {
+    width: 15px;
+    height: 15px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-heading .vacancies-list-box-heading-abt .abt-bt span,
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading .vacancies-int-box-heading-abt .abt-bt span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #01375C;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-bank,
+.vacancies-int .vacancies-int-box .vacancies-int-box-bank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-bank img,
+.vacancies-int .vacancies-int-box .vacancies-int-box-bank img {
+    width: 24px;
+    height: 24px;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-bank span,
+.vacancies-int .vacancies-int-box .vacancies-int-box-bank span {
+    font-family: 'FiraGO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    opacity: 0.6;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-deadline h6,
+.vacancies-int .vacancies-int-box .vacancies-int-box-deadline h6 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #212121;
+    opacity: 0.5;
+}
+
+.vacancies-list .vacancies-list-box .vacancies-list-box-deadline span,
+.vacancies-int .vacancies-int-box .vacancies-int-box-deadline span {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #212121;
+    opacity: 0.8;
+}
+
+.vacancies-list .vacancies-list-box .send {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+}
+
+@media (max-width: 1024px) {
+    .vacancies-list .vacancies-list-box {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 16px 75px 16px 16px;
+    }
+
+    .vacancies-list .vacancies-list-box .vacancies-list-box-heading p {
+        margin-top: 64px;
+    }
+
+    .vacancies-list .vacancies-list-box .vacancies-list-box-deadline {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .vacancies-list .vacancies-list-box .vacancies-list-box-bank {
+        position: absolute;
+        top: 55px;
+        left: 16px;
+    }
+
+    .vacancies-list .vacancies-list-box .send {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .vacancies-list .vacancies-list-box .vacancies-list-box-heading .vacancies-list-box-heading-abt {
+        margin-top: 20px;
+    }
+
+    .vacancies .vacancies-cont .vacancies-heading {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Vacancies internal page */
+.vacancies-int .vacancies-int-box {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+    background: #FCFCFC;
+    border-radius: 7px;
+    padding: 40px;
+    margin-bottom: 80px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-deadline {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.vacancies-int-box-heading h3 {
+    margin-bottom: 16px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-bank {
+    justify-content: flex-start;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading {
+    margin-bottom: 40px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-heading .vacancies-int-box-heading-abt {
+    margin-top: 16px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt {
+    width: 85%;
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt .vacancies-int-box-abt-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt .vacancies-int-box-abt-desc h6 {
+    margin-bottom: -16px;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt .last-line a {
+    text-decoration: underline;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #000000;
+}
+
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt .last-line span,
+.vacancies-int .vacancies-int-box .vacancies-int-box-abt .vacancies-int-box-abt-desc ul li {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #000000;
+}
+
+@media (max-width: 1024px) {
+    .vacancies-int .vacancies-int-box {
+        padding: 20px;
+    }
+
+    .vacancies-int .vacancies-int-box .vacancies-int-box-deadline {
+        right: 20px;
+        top: 20px;
+    }
+
+    .vacancies-int .vacancies-int-box .vacancies-int-box-abt {
+        width: 100%;
+    }
+}
+
+
+/* Blog page */
+.blog-heading {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.blog-vl {
+    background: rgba(2, 131, 219, 0.28);
+    border-radius: 10px;
+    width: 2px;
+    height: 28px;
+}
+
+.blog-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.blog-tags .tag {
+    height: 45px;
+    width: fit-content;
+    padding: 0 18px;
+
+    background: #FFFFFF;
+    border-radius: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+
+.blog-tags .tag:hover {
+    background: rgba(2, 132, 219, 0.1);
+}
+
+.blog-tags .tag,
+.blog-tags .tag span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3A3A3A;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    margin: 32px 0 80px 0;
+}
+
+.blog-grid .blog-prew {
+    max-width: 852px;
+    width: 100%;
+    height: 659px;
+
+    background: linear-gradient(84.35deg, rgba(17, 17, 17, 0.7) 41.6%, rgba(55, 55, 55, 0.7) 100%), url(../img/Rectangle\ 28.jpg);
+    border-radius: 8px;
+    padding: 64px 64px 56px 64px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    overflow: hidden;
+}
+
+.blog-grid .blog-prew h2 {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.0rem;
+    color: #FFFFFF;
+    margin-bottom: -28px;
+}
+
+.blog-grid .blog-prew .blog-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+
+    height: 280px;
+    overflow: hidden;
+}
+
+.blog-grid .blog-prew span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+}
+
+.blog-grid .blog-prew span img {
+    filter: brightness(0) invert(1);
+}
+
+.blog-grid .blog-prew p {
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.blog-grid .blog-prew .blog-prew-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-grid .blog-prew .blog-prew-bottom .blog-prew-bottom-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.blog-grid .blog-prew .blog-prew-bottom button {
+    border: none;
+    cursor: pointer;
+}
+
+.blog-grid .blog-prew .blog-prew-bottom button:hover {
+    opacity: 0.8;
+}
+
+.blog-grid .blog-prew .blog-prew-bottom .btn-more {
+    width: fit-content;
+    height: 52px;
+    padding: 0 24px;
+
+    background: #0283DB;
+    border-radius: 200px;
+
+    font-family: 'Helvetica Neue LT GEO';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+}
+
+.blog-grid .blog-prew .blog-prew-bottom .btn-share {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #E0E0E0;
+    border-radius: 200px;
+}
+
+@media (max-width: 1024px) {
+    .blog-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        display: grid;
+
+        grid-template-areas:
+            "b1"
+            "b2"
+            "b3"
+    }
+
+    .blog-heading h2 {
+        grid-area: b1;
+    }
+
+    .blog-search {
+        grid-area: b2;
+        margin-top: -22px;
+    }
+
+    .blog-tags {
+        grid-area: b3;
+    }
+
+    .blog-vl {
+        display: none;
+    }
+
+    .blog-grid {
+        justify-items: center;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .blog-grid .blog-prew .blog-desc {
+        display: none;
+    }
+
+    .blog-grid .blog-prew {
+        height: fit-content;
+        max-width: none;
+        padding: 24px;
+        gap: 120px;
+    }
+
+    .blog-heading .blog-search {
+        max-width: none;
     }
 }
