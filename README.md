@@ -4,7 +4,6 @@
 
 #### Description
 
-- Fully responsive
 - Academy for software testers
 
 #### Built with
